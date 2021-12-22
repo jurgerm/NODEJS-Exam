@@ -16,16 +16,16 @@ router.get('/', async (req, res) => {
     const userId = req.headers.userDetails.id;
     const query = `
       SELECT 
-        accounts.id, 
-        accounts.group_id, 
-        accounts.user_id, 
-        groups.name 
+        exam_accounts.id, 
+        exam_accounts.group_id, 
+        exam_accounts.user_id, 
+        exam_groups.full_name 
       FROM 
-        exam_accounts AS accounts
-        INNER JOIN exam_groups AS groups
-          ON accounts.group_id = groups.id
+        exam_accounts 
+        INNER JOIN exam_groups 
+        ON exam_accounts.group_id = exam_groups.id
       WHERE 
-        accounts.user_id = ${mysql.escape(userId)}
+        exam_accounts.user_id = ${mysql.escape(userId)}
     `;
     const data = await connectToDb(query);
     return res.send(data);

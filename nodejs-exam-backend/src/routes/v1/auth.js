@@ -11,7 +11,7 @@ const { sendError, sendUserError } = require('../../controllers/error');
 const router = express.Router();
 
 const userSchema = Joi.object({
-  password: Joi.string().min(6).max(255).required(),
+  password: Joi.string().min(3).max(255).required(),
   email: Joi.string().email().trim().lowercase().required(),
   fullName: Joi.string().min(5).required(),
 });
@@ -50,7 +50,7 @@ router.post('/register', async (req, res) => {
     console.log(dbResponse);
     return res.json({});
   } catch (err) {
-    sendError(res, error);
+    sendError(res, err);
   }
 });
 
@@ -65,7 +65,7 @@ router.post('/login', async (req, res) => {
       SELECT 
         * 
       FROM 
-        users 
+        exam_users 
       WHERE 
         email = ${mysql.escape(userInputs.email)} 
       LIMIT 1;
@@ -89,7 +89,7 @@ router.post('/login', async (req, res) => {
       ? res.send({ msg: 'Succesfully loged in', token })
       : res.status(400).send({ error: 'Incorrect email or password' });
   } catch (err) {
-    sendError(res, error);
+    sendError(res, err);
   }
 });
 

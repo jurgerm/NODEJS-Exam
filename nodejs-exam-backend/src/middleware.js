@@ -18,7 +18,7 @@ const isLoggedIn = (req, res, next) => {
     req.headers.userDetails = userDetails;
     return next();
   }
-  return res.status(401).send({ err: 'incorrect details' });
+  return res.status(401).send({ err: 'Incorrect details' });
 };
 
 module.exports = {

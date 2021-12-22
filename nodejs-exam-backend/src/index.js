@@ -8,6 +8,8 @@ const { port } = require('./config');
 const app = express();
 
 app.use(express.json());
+
+// use cors middleware to allow requests from all origins
 app.use(cors());
 
 const auth = require('./routes/v1/auth');
