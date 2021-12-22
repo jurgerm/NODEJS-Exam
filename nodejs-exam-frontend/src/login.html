@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NodeJs Exam: login</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/config.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <img src="images/examlogo.png" alt="logo" />
+          <h1>NodeJs Exam</h1>
+        </div>
+        <h3>Lorem ipsum dolar sitamet</h3>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <h2>Login</h2>
+        <form class="form create-login">
+          <div class="field">
+            <label class="label" for="email">Email</label>
+            <input class="input is-medium" type="email" id="log-email" placeholder="abcefgh@abcefgh.com" />
+          </div>
+          <div class="field">
+            <lapel class="label" for="password">Password</lapel>
+            <input class="input is-medium" type="password" id="password" placeholder="password" />
+          </div>
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="submit button is-link" id="submit-btn" type="submit">
+                Login
+              </button>
+            </div>
+          </div>
+        </form>
+        <div>
+          <p>Do not have an account? <a href="register.html">Register</a></p>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="js/login.js"></script>
+</body>
+
+</html>
