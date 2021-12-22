@@ -1,4 +1,4 @@
-//Add new bill in to group
+//Add new bill into the group
 document.getElementById('add-new-bill').addEventListener('submit', (e) => {
   e.preventDefault();
   const data = {

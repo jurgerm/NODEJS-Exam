@@ -21,17 +21,40 @@ const loginSchema = Joi.object({
   email: Joi.string().email().trim().lowercase().required(),
 });
 
+async function checkDuplicate(email) {
+  const query = `
+      SELECT 
+        id 
+      FROM 
+        exam_users 
+      WHERE
+        email=${mysql.escape(email)}
+        ;
+    `;
+
+  const data = await connectToDb(query);
+  console.log(data);
+  console.log("Cia yra duomenu ilgis" , data.length);
+  return data.length > 0;
+};
+
 /**
  * POST /Register.
  */
 router.post('/register', async (req, res) => {
   let userInputs = req.body;
+  console.log(userInputs);
   try {
     userInputs = await userSchema.validateAsync(userInputs);
   } catch (err) {
-    sendUserError(res, 'Incorect data provided', userInputs);
+    return sendUserError(res, 'Incorect data provided', userInputs);
   }
-  try {
+   try {
+     const email = userInputs.email;
+     const isDuplicate = await checkDuplicate(email);
+     if (isDuplicate) {
+      return sendUserError(res, 'Email already exists', userInputs);
+    }
     const encryptedPassword = bcrypt.hashSync(userInputs.password, 10);
     const query = `
       INSERT INTO exam_users 
@@ -58,7 +81,7 @@ router.post('/register', async (req, res) => {
  * POST /login 
  */
 router.post('/login', async (req, res) => {
-  let userInputs = req.body; 
+  let userInputs = req.body;
   try {
     const con = await mysql.createConnection(dbConfig);
     const query = ` 
@@ -78,9 +101,9 @@ router.post('/login', async (req, res) => {
     }
     const isAuthorized = bcrypt.compareSync(userInputs.password, data[0].password);
     const token = jwt.sign(
-      { 
-        id: data[0].id, 
-        email: userInputs.email 
+      {
+        id: data[0].id,
+        email: userInputs.email
       },
       jwtPassword,
     );

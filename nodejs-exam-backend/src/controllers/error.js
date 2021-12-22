@@ -1,15 +1,16 @@
 
 module.exports = {
-    sendError: (res, error) => {
-        console.log(error);
-        res.status(500).send({
-            error: error.message,
+    sendError: (res, errorObject) => {
+        console.log(errorObject);
+        return res.status(500).send({
+            error: errorObject.message,
+            data: JSON.stringify(errorObject)
         });
     },
 
     sendUserError: (res, errorMessage, data) => {
-        console.log(error);
-        res.status(400).send({
+        console.log(errorMessage, data);
+       return res.status(400).send({
             error: errorMessage,
             data: data
         });

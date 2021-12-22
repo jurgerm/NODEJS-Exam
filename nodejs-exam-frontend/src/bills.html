@@ -1,70 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NodeJs Exam: bills</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/config.js"></script>
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <div class="container">
-          <div class="header-content">
-            <img src="images/examlogo.png" alt="logo" />
-            <h1>NodeJs Exam</h1>
-          </div>
-          <h3>Lorem ipsum dolar sitamet</h3>
-        </div>
-      </header>
-      <main>
-        <div class="content">
-          <h2>Group's bills:</h2>
-          <div class="bills-table">
-            <table class="table is-striped is-hoverable user-bills">
-              <thead>
-                <th>ID</th>
-                <th>Description</th>
-                <th>Amount</th>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div>
-        <div class="container">
-          <div class="new-bill">
-            <h4>Add Bill</h4>
-            <form id="add-new-bill">
-              <label class="label" for="amount">Amount:</label>
-              <input class="input is-medium" id="amount" type="number" />
-              <lapel class="label" for="description">Description:</lapel>
-              <textarea
-                class="textarea"
-                placeholder="Textarea"
-                id="description"
-              >
-              </textarea>
 
-              <div class="buttons">
-                <button
-                  class="submit, button is-link"
-                  id="submit-btn"
-                  type="submit"
-                >
-                  Add
-                </button>
-              </div>
-            </form>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NodeJs Exam: bills</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/config.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <img src="images/examlogo.png" alt="logo" />
+          <h1>Split Bill</h1>
         </div>
-      </main>
-    </div>
-    <script type="module" src="js/bills.js"></script>
-  </body>
+        <h3>BEST IN MARKET</h3>
+      </div>
+    </header>
+    <main>
+      <div class="content">
+        <h2>Group's bills:</h2>
+        <div class="bills-table">
+          <table class="table is-striped is-hoverable user-bills">
+            <thead>
+              <th>ID</th>
+              <th>Description</th>
+              <th>Amount</th>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="container">
+        <div class="new-bill">
+          <h4>Add Bill</h4>
+          <form id="add-new-bill">
+            <label class="label" for="amount">Amount:</label>
+            <input class="input is-medium" id="amount" type="number" />
+            <lapel class="label" for="description">Description:</lapel>
+            <textarea class="textarea" placeholder="Textarea" id="description">
+              </textarea>
+            <div class="buttons">
+              <button class="submit button is-outlined is-black" id="submit-btn" type="submit">
+                Add
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="js/bills.js"></script>
+</body>
+
 </html>
